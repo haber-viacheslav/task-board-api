@@ -6,6 +6,7 @@ interface ITasksAttrs {
   priority: string;
   description: string;
   dueDate: Date;
+  statusId: number;
 }
 
 @Table({ tableName: "tasks" })
@@ -29,6 +30,12 @@ export class Task extends Model<Task, ITasksAttrs> {
     allowNull: false,
   })
   status!: string;
+
+  @Column({
+    type: DataType.INTEGER,
+    allowNull: false,
+  })
+  statusId!: number;
 
   @Column({
     type: DataType.STRING,

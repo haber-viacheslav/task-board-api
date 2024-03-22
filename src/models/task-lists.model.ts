@@ -4,7 +4,7 @@ interface ITaskListAttrs {
   listName: string;
 }
 
-@Table({ tableName: "taskList" })
+@Table({ tableName: "task_list" })
 export class TaskList extends Model<TaskList, ITaskListAttrs> {
   @Column({
     type: DataType.INTEGER,
