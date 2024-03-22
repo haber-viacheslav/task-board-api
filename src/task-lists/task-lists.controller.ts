@@ -8,7 +8,7 @@ import {
   Delete,
   NotFoundException,
 } from "@nestjs/common";
-import { ApiOperation, ApiResponse } from "@nestjs/swagger";
+import { ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
 import {
   CreateTaskListDto,
   UpdateTaskListDto,
@@ -16,6 +16,7 @@ import {
 import { TaskListsService } from "./task-lists.service";
 import { TaskList } from "@/models/task-lists.model";
 
+@ApiTags("Task Lists")
 @Controller("api/task_lists")
 export class TaskListsController {
   constructor(private taskListsService: TaskListsService) {}
