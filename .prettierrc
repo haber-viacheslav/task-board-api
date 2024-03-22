@@ -1,0 +1,12 @@
+{
+  "prettier/prettier": [
+    "error",
+    {
+      "semi": false,
+      "trailingComma": "none",
+      "tabWidth": 2,
+      "useTabs": false,
+      "parser": "flow"
+    }
+  ]
+}
