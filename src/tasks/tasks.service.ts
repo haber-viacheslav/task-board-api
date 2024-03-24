@@ -25,13 +25,13 @@ export class TasksService {
 
   async updateTask(id: number, dto: UpdateTaskDto): Promise<Task> {
     const task = await this.getTaskById(id);
-    await task.update(dto);
+    await task.update({ ...dto, updatedAt: new Date() });
     return task.reload();
   }
 
-  async deleteTask(id: number): Promise<string> {
+  async deleteTask(id: number): Promise<object> {
     const task = await this.getTaskById(id);
     await task.destroy();
-    return "Task was deleted";
+    return { message: "Task was deleted" };
   }
 }

@@ -4,13 +4,13 @@ import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 
 const start = async () => {
   const PORT = process.env.PORT || 5000;
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, { cors: true });
 
   const config = new DocumentBuilder()
     .setTitle("Task Board API")
     .setDescription("Documentation REST API")
     .setVersion("1.0.0")
-    .addTag("Viacheslav Haber")
+    .addTag("Viacheslav Haber API")
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup("/api/docs", app, document);

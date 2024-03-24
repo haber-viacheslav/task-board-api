@@ -28,4 +28,10 @@ class BaseTaskDto {
 
 export class CreateTaskDto extends BaseTaskDto {}
 
-export class UpdateTaskDto extends BaseTaskDto {}
+export class UpdateTaskDto extends BaseTaskDto {
+  @ApiProperty({
+    example: "2024-12-31T23:59:59",
+    description: "update the task",
+  })
+  updatedAt!: Date;
+}
