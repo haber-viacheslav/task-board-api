@@ -8,6 +8,10 @@ export class TasksService {
   constructor(@InjectModel(Task) private taskStore: typeof Task) {}
 
   async createTask(dto: CreateTaskDto): Promise<Task> {
+    const task = await this.getTaskByName(dto.name);
+    if (dto.name === task.name) {
+      throw new Error(`Task with name ${dto.name} is found`);
+    }
     return await this.taskStore.create(dto);
   }
 
@@ -19,6 +23,14 @@ export class TasksService {
     const task = await this.taskStore.findByPk(id);
     if (!task) {
       throw new Error(`Task with id ${id} not found`);
+    }
+    return task;
+  }
+
+  async getTaskByName(name: string): Promise<Task> {
+    const task = await this.taskStore.findByPk(name);
+    if (!task) {
+      throw new Error(`Task with name ${name} not found`);
     }
     return task;
   }
