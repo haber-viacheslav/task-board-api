@@ -5,7 +5,7 @@ interface ITasksAttrs {
   status: string;
   priority: string;
   description: string;
-  dueDate: Date;
+  dueDate: string;
   statusId: number;
 }
 
@@ -56,7 +56,7 @@ export class Task extends Model<Task, ITasksAttrs> {
     type: DataType.DATE,
     allowNull: false,
   })
-  dueDate!: Date;
+  dueDate!: string;
 
   @ApiProperty({
     example: "It`s important task, for clean house",
