@@ -15,11 +15,11 @@ import { TasksController } from "./tasks/tasks.controller";
     ConfigModule.forRoot({ envFilePath: `.${process.env.NODE_ENV}.env` }),
     SequelizeModule.forRoot({
       dialect: "postgres",
-      host: "localhost",
+      host: process.env.POSTGRES_HOST,
       port: Number(process.env.POSTGRES_PORT),
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
-      database: "task-board",
+      database: process.env.POSTGRES_DB,
       models: [Task, TaskList, TaskHistory],
       autoLoadModels: true,
     }),
